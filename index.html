@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fas fa-search"></i>
+      </div>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    
+    </nav>
+  </header>
+
+<!-- Button to open the side menu -->
+
+
+
+  <!-- Sidebar Menu for Mobile -->
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h2>I'M <span>Parth Gholap</span></h2>
+      <p>Python Developer & Web Developer Consultant</p>
+      <a href="#contact" class="contact-btn">Contact Me</a>
+    </div>
+  
+    <div class="hero-img">
+      <img src="main.png" alt="My Photo">
+    </div>
+  
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </section>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="python.svg" alt="Python" class="card-image">
+      <h3>Python</h3>
+    </div>
+    <div class="card">
+      <img src="amazon-web-services.svg" alt="AWS" class="card-image">
+      <h3>AWS</h3>
+    </div>
+    <div class="card">
+      <img src="css.svg" alt="CSS" class="card-image">
+      <h3>CSS</h3>
+    </div>
+    <div class="card">
+      <img src="django.svg" alt="Django" class="card-image">
+      <h3>Django</h3>
+    </div>
+    <div class="card">
+      <img src="flask.svg" alt="Flask" class="card-image">
+      <h3>Flask</h3>
+    </div>
+    <div class="card">
+      <img src="flutter.svg" alt="Flutter" class="card-image">
+      <h3>Flutter</h3>
+    </div>
+    <div class="card">
+      <img src="git.svg" alt="GIT" class="card-image">
+      <h3>GIT</h3>
+    </div>
+    <div class="card">
+      <img src="html.svg" alt="HTML" class="card-image">
+      <h3>HTML</h3>
+    </div>
+
+    <div class="card">
+      <img src="mongodb.svg" alt="MongoDB" class="card-image">
+      <h3>MongoDB</h3>
+    </div>
+  </div>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact-buttons">
+    <div class="contact-btn"><i class="fas fa-user"></i> Web Development</div>
+    <div class="contact-btn"><i class="fas fa-phone-alt"></i> 7821885073</div>
+    <div class="contact-btn"><i class="fas fa-map-marker-alt"></i> Jalna, India</div>
+  </div>
+</section>
+
+
+  <script>
+    /* Function to open the side navigation menu */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "200px";
+    }
+
+    /* Function to close the side navigation menu */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+</body>
+</html>
