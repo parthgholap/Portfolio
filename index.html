@@ -7,6 +7,66 @@
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+
+  <!-- Database -->
+
+  <!-- Firebase App -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+
+  <!-- Firestore SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAhWv-WTogfcYWuChh0WcT0LXmryysjCQ8",
+      authDomain: "portfolio-db-cd32a.firebaseapp.com",
+      databaseURL: "https://portfolio-db-cd32a-default-rtdb.firebaseio.com",
+      projectId: "portfolio-db-cd32a",
+      storageBucket: "portfolio-db-cd32a.appspot.com",
+      messagingSenderId: "135337527900",
+      appId: "1:135337527900:web:b35ac999c0da582854b499",
+      measurementId: "G-XYT96JTR0Y"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("text").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (name && message) {
+        try {
+          await addDoc(collection(db, "Messages"), {
+            name: name,
+            message: message
+          });
+          alert("Message sent successfully!");
+          document.getElementById("contactForm").reset();
+        } catch (error) {
+          alert("Error sending message: " + error.message);
+        }
+      } else {
+        alert("Please fill in all fields.");
+      }
+    });
+  </script>
+
+  </script>
+
+
+
+
+
 
 </head>
 
@@ -76,6 +136,59 @@
     .hamburger {
       display: flex;
     }
+
+    .hero-img {
+      display: inline;
+    }
+
+  }
+
+
+
+  /* Dialog overlay */
+  #dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    /* hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  /* Dialog box */
+  .dialog-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    max-height: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .dialog-title {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .dialog-content {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .cancel-btn {
+    padding: 8px 16px;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
   }
 </style>
 
@@ -90,8 +203,8 @@
         <li><a href="#home" id="homeID">Home</a></li>
         <li><a href="#about" id="aboutID">About</a></li>
         <li><a href="#service" id="servicesID">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#project" id="projectID">Project's</a></li>
+        <li><a href="#contact" id="contactID">Contact</a></li>
       </ul>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -111,8 +224,8 @@
         <a href="index.html" id="homeID">Home</a>
         <a href="aboutSection.html" id="aboutID">About</a>
         <a href="servicesSection.html" id="servicesID">Services</a>
-        <a href="#portfolio" id="portfolioID">Portfolio</a>
-        <a href="#contact" id="ContactID">Contact</a>
+        <a href="projectSection.html" id="projectID">Project's</a>
+        <a href="aboutSection.html" id="contactID">Contact</a>
       </div>
       </div>
 
@@ -129,7 +242,7 @@
     <div class="hero-text">
       <h2>I'M <span>Parth Gholap</span></h2>
       <p>Python Developer & Web Developer Consultant</p>
-      <a href="#contact" class="contact-btn">Contact Me</a>
+      <a href="aboutSection.html" id="contactme" class="contact-btn">Contact Me</a>
     </div>
 
     <div class="hero-img">
@@ -145,46 +258,110 @@
   </section>
 
   <div class="card-container">
-    <div class="card">
+    <div class="card" data-info="Python is a popular programming language known for its clean syntax and readability.
+It is widely used in web development, data science, machine learning, and automation.
+Python supports multiple programming paradigms like procedural and object-oriented.
+It has a huge collection of libraries and frameworks that make development faster.
+Beginners love Python for its simplicity and versatility.
+
+">
       <img src="python.svg" alt="Python" class="card-image">
       <h3>Python</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="AWS is a secure cloud services platform offered by Amazon.
+It provides services like virtual servers, storage, databases, and more.
+AWS helps companies scale easily without managing physical servers.
+Popular services include EC2, S3, Lambda, and RDS.
+It is widely used by startups, enterprises, and government organizations.
+
+">
       <img src="amazon-web-services.svg" alt="AWS" class="card-image">
       <h3>AWS</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="CSS is used to style HTML pages by controlling layout, colors, and fonts.
+It allows developers to make websites look modern and responsive.
+CSS works with selectors and properties to apply styles.
+You can use Flexbox and Grid to design complex layouts.
+It also supports animations, transitions, and media queries.
+
+">
       <img src="css.svg" alt="CSS" class="card-image">
       <h3>CSS</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="Django is a high-level web framework built with Python.
+It helps in rapid development with built-in features like admin panel, ORM, and authentication.
+Django follows the “Don’t Repeat Yourself” (DRY) principle.
+It’s used to build secure and scalable web applications.
+Popular websites like Instagram and Pinterest have used Django.
+
+">
       <img src="django.svg" alt="Django" class="card-image">
       <h3>Django</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="Flask is a lightweight Python web framework that's easy to get started with.
+It is flexible and gives full control to developers.
+Flask is great for small apps, REST APIs, and quick prototypes.
+It doesn’t come with built-in tools like Django but can be extended.
+Ideal for those who want simplicity and customization.
+
+">
       <img src="flask.svg" alt="Flask" class="card-image">
       <h3>Flask</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="Flutter is an open-source UI toolkit by Google.
+It is used to build beautiful apps for Android, iOS, web, and desktop from a single codebase.
+It uses Dart programming language.
+With Flutter, you can create fast, high-performance apps with native feel.
+It has a rich set of pre-built widgets for rapid development.
+
+.">
       <img src="flutter.svg" alt="Flutter" class="card-image">
       <h3>Flutter</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="Git is a distributed version control system used by developers.
+It helps track changes in code and collaborate with teams.
+With Git, you can create branches, merge code, and manage history.
+Platforms like GitHub and GitLab use Git.
+It’s essential for modern software development workflows.
+
+">
       <img src="git.svg" alt="GIT" class="card-image">
       <h3>GIT</h3>
     </div>
-    <div class="card">
+    <div class="card" data-info="HTML is the standard language used to create web pages.
+It defines the structure of content using tags like <div>, <p>, <img>, etc.
+HTML works with CSS and JavaScript to build interactive websites.
+It’s easy to learn and forms the base of all web development.
+HTML5 introduced features like video, audio, and semantic elements.
+
+">
       <img src="html.svg" alt="HTML" class="card-image">
       <h3>HTML</h3>
     </div>
 
-    <div class="card">
+    <div class="card" data-info="MongoDB is a NoSQL database that stores data in JSON-like documents.
+It is schema-less, meaning it can store different types of data flexibly.
+Used widely for real-time applications, analytics, and big data.
+It supports indexing, aggregation, and rich queries.
+Popular in modern web stacks like MERN (MongoDB, Express, React, Node).
+
+">
       <img src="mongodb.svg" alt="MongoDB" class="card-image">
       <h3>MongoDB</h3>
     </div>
   </div>
 
-  <!-- Contact Section -->
+
+  <div id="dialog">
+    <div class="dialog-box">
+      <div class="dialog-title" id="dialogTitle"></div>
+      <div class="dialog-content" id="dialogContent"></div>
+      <button class="cancel-btn" id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- 
+  Contact Section
   <section class="contact-section" id="contact">
     <h2>Contact Me</h2>
     <div class="contact-buttons">
@@ -192,7 +369,74 @@
       <div class="contact-btn"><i class="fas fa-phone-alt"></i> 1020304050</div>
       <div class="contact-btn"><i class="fas fa-map-marker-alt"></i> Jalna, India</div>
     </div>
-  </section>
+  </section> -->
+
+
+
+  <!-- footer -->
+
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8">
+
+      <!-- Logo -->
+      <div>
+        <img src="portfoliopng" alt="Logo" class="h-8 mb-4" style="height: 150px; width: 200px;">
+      </div>
+
+      <!-- Solutions -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4 uppercase text-gray-400">Solutions</h4>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="#" class="hover:text-white">Explainable AI</a></li>
+          <li><a href="#" class="hover:text-white">ML Monitoring</a></li>
+        </ul>
+      </div>
+
+      <!-- Use Cases -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4 uppercase text-gray-400">Use Cases</h4>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="#" class="hover:text-white">Fraud</a></li>
+          <li><a href="#" class="hover:text-white">Churn Detection</a></li>
+          <li><a href="#" class="hover:text-white">Underwriting</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4 uppercase text-gray-400">Resources</h4>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="#" class="hover:text-white">Resource Hub</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Learn More</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4 uppercase text-gray-400">Company</h4>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="#" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Events</a></li>
+          <li><a href="#" class="hover:text-white">Contact Us</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Subscribe Form (spans full width below in small screens) -->
+      <form class="flex flex-col sm:flex-row gap-4" id="contactForm">
+        <input type="text" id="text" placeholder="Name" class="px-4 py-2 rounded-md text-black w-full sm:w-auto">
+        <input type="text" id="message" placeholder="Leave Message..."
+          class="px-4 py-2 rounded-md text-black w-full sm:w-auto">
+        <button type="submit" id="send"
+          class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md font-semibold">Send</button>
+      </form>
+
+    </div>
+  </footer>
+
+
 
 
   <script>
@@ -206,14 +450,29 @@
       document.getElementById("mySidenav").style.width = "0";
     }
 
+    document.getElementById("contactme").addEventListener("click", function (event) {
+      window.location.href = "aboutSection.html";
+    });
+
+
+    document.getElementById("projectID").addEventListener("click", function (event) {
+      window.location.href = "projectSection.html";
+    });
+
     document.getElementById("aboutID").addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default anchor behavior (scroll to #about)
       window.location.href = "aboutSection.html"; // Open new page in same tab
     });
 
-    document.getElementById("servicesID").addEventListener("click", function(event){
+
+    document.getElementById("servicesID").addEventListener("click", function (event) {
       event.preventDefault();
       window.location.href = "servicesSection.html";
+    });
+
+    document.getElementById("contactID").addEventListener("click", function (event) {
+      event.preventDefault();
+      window.location.href = "aboutSection.html";
     });
 
     const hamburger = document.querySelector(".hamburger");
@@ -234,6 +493,34 @@
       const menu = document.getElementById("dropdownMenu");
       menu.classList.toggle("active");
     }
+
+
+
+    const cards = document.querySelectorAll('.card');
+    const dialog = document.getElementById('dialog');
+    const dialogTitle = document.getElementById('dialogTitle');
+    const dialogContent = document.getElementById('dialogContent');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        dialogTitle.textContent = card.querySelector('h3').textContent;
+        dialogContent.textContent = card.getAttribute('data-info');
+        dialog.style.display = 'flex';
+      });
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      dialog.style.display = 'none';
+    });
+
+    // Close dialog if click outside dialog box
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        dialog.style.display = 'none';
+      }
+    });
+
 
   </script>
 
