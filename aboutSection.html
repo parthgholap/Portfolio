@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .team-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .team-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            /* Default: Mobile first */
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: auto;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .team-content {
+            padding: 20px;
+        }
+
+        .team-content h3 {
+            font-size: 1.9em;
+            margin-bottom: 5px;
+        }
+
+        .team-content .role {
+            color: #777;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .team-content .bio {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .skills {
+            margin-bottom: 15px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.99em;
+            margin: 3px 5px 0 0;
+        }
+
+        .contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: #333;
+            font-size: 0.99em;
+            word-break: break-word;
+        }
+
+        .contact i {
+            color: #4CAF50;
+            min-width: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            margin-top: 20px;
+            color: #2c2c38;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff0000;
+        }
+
+
+        /* Horizontal layout for large screens */
+        @media (min-width: 768px) {
+            .team-card {
+                flex-direction: row;
+                padding: 10px;
+            }
+
+            .team-photo {
+                width: 40%;
+                height: 100%;
+                padding: 10px;
+            }
+
+            .team-photo img {
+                height: 100%;
+            }
+
+            .team-content {
+                width: 60%;
+                padding: 30px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to About Section</h1>
+
+    <div class="team-container">
+        <div class="team-card">
+            <div class="team-photo">
+                <img src="main.png" alt="Profile Photo">
+            </div>
+            <div class="team-content">
+                <h3>Gholap Parth</h3>
+                <p class="role">Full Stack Developer</p>
+                <p class="bio">Parth is a dedicated developer experienced in building dynamic websites and applications
+                    using modern web tools.</p>
+
+                <div class="skills">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                </div>
+
+                <div class="contact">
+                    <p><i class="fas fa-phone-alt"></i> <span>+91 1020304050</span></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:abc@example.com">abc@example.com</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="#">@abc</a></p>
+                    <p><i class="fab fa-facebook"></i> <a href="#">facebook.com/abc</a></p>
+                    <p><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/abc</a></p>
+                    <p><i class="fab fa-github"></i> <a href="#">github.com/abc</a></p>
+                </div>
+                <a href="index.html" class="btn">Go Back to Home</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

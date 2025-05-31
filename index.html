@@ -1,21 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
+
 </head>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+  }
+
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 150px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  .dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #f5f5f5;
+  }
+
+  .dropdown-menu.active {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+
 <body>
 
   <!-- Navigation Bar -->
   <header>
     <nav class="navbar">
-      <div class="logo">MyPortfolio</div>
+      <div class="logo">Portfolio</div>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="#home" id="homeID">Home</a></li>
+        <li><a href="#about" id="aboutID">About</a></li>
+        <li><a href="#service" id="servicesID">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -26,12 +100,28 @@
       <div class="hamburger">
         <i class="fas fa-bars"></i>
       </div>
-    
+
+
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html" id="homeID">Home</a>
+        <a href="aboutSection.html" id="aboutID">About</a>
+        <a href="#services" id="servicesID">Services</a>
+        <a href="#portfolio" id="portfolioID">Portfolio</a>
+        <a href="#contact" id="ContactID">Contact</a>
+      </div>
+      </div>
+
     </nav>
   </header>
 
-<!-- Button to open the side menu -->
+  <!-- Button to open the side menu -->
 
+  <!-- Sidebar Menu for Mobile -->
 
 
   <!-- Sidebar Menu for Mobile -->
@@ -50,11 +140,11 @@
       <p>Python Developer & Web Developer Consultant</p>
       <a href="#contact" class="contact-btn">Contact Me</a>
     </div>
-  
+
     <div class="hero-img">
       <img src="main.png" alt="My Photo">
     </div>
-  
+
     <div class="social-links">
       <a href="#"><i class="fab fa-facebook-f"></i></a>
       <a href="#"><i class="fab fa-twitter"></i></a>
@@ -103,28 +193,55 @@
     </div>
   </div>
 
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact-buttons">
-    <div class="contact-btn"><i class="fas fa-user"></i> Web Development</div>
-    <div class="contact-btn"><i class="fas fa-phone-alt"></i> 1020304050</div>
-    <div class="contact-btn"><i class="fas fa-map-marker-alt"></i> Jalna, India</div>
-  </div>
-</section>
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-buttons">
+      <div class="contact-btn"><i class="fas fa-user"></i> Web Development</div>
+      <div class="contact-btn"><i class="fas fa-phone-alt"></i> 1020304050</div>
+      <div class="contact-btn"><i class="fas fa-map-marker-alt"></i> Jalna, India</div>
+    </div>
+  </section>
 
 
   <script>
     /* Function to open the side navigation menu */
     function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
+      document.getElementById("mySidenav").style.width = "200px";
     }
 
     /* Function to close the side navigation menu */
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").style.width = "0";
     }
-</script>
+
+    document.getElementById("aboutID").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default anchor behavior (scroll to #about)
+      window.location.href = "aboutSection.html"; // Open new page in same tab
+    });
+
+
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+    });
+
+    // Optional: Hide sidebar when a link is clicked
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+      });
+    });
+
+    function toggleMenu() {
+      const menu = document.getElementById("dropdownMenu");
+      menu.classList.toggle("active");
+    }
+
+  </script>
 
 </body>
+
 </html>

@@ -14,31 +14,33 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1e1e2f;
+    background: #fff;
     padding: 10px 20px;
-    color: #fff;
+    color: #000000;
     position: sticky;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px;
+    margin-bottom: -20px;
     top: 0;
     z-index: 100;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
 
 .nav-links {
     list-style: none;
     display: flex;
     font-size: 1.5rem;
-    font-weight: bold;
-    gap: 20px;
+    font-weight: normal;
+    justify-content: left;
+    text-align: left;
+    gap: 30px;
 }
 
 .nav-links li a {
-    color: white;
+    color: rgb(61, 36, 36);
     text-decoration: none;
     transition: color 0.3s;
+    justify-content: end;
 }
 
 .nav-links li a:hover {
@@ -47,12 +49,14 @@ body {
 
 .search-box {
     position: relative;
+    border: #1b1010;
 }
 
 .search-box input {
     padding: 5px 30px 5px 10px;
     border-radius: 20px;
     border: none;
+    border: #000000;
 }
 
 .search-box i {
@@ -60,6 +64,7 @@ body {
     right: 10px;
     top: 50%;
     color: #333;
+    border: #141111;
 }
 
 /* Hamburger Menu (for mobile) */
@@ -70,42 +75,6 @@ body {
 
 .hamburger i {
     font-size: 24px;
-}
-
-/* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #1e1e2f;
-    transition: left 0.3s;
-    padding-top: 60px;
-    z-index: 50;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li a {
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: white;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-.sidebar ul li a:hover {
-    background-color: #00f5c5;
-}
-
-/* Show Sidebar */
-.sidebar.active {
-    left: 0;
 }
 
 /* Responsive Design */
