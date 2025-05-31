@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Section</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-animate {
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .icon-animate {
+            transform: rotate(10deg) scale(1.9);
+        }
+
+        .image {
+            width: 130px;
+            height: 130px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            margin-top: 20px;
+            color: #2c2c38;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+    <section id="services" class="py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800">My Services</h2>
+            <p class="text-gray-600 mt-2">Here’s what I can offer</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Card -->
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-blue-500 mb-4"><i class="fas fa-python"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Python
+                    Development</h3>
+
+                <div class="card">
+                    <img src="python.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Custom Python scripting, automation, backend services, and API integration
+                    using Flask or Django.</p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-indigo-500 mb-4"><i class="fas fa-laptop-code"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Web
+                    Development</h3>
+
+                <div class="card">
+                    <img src="html.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Responsive and dynamic websites using HTML, CSS, JavaScript, PHP, and modern
+                    frameworks like Bootstrap or Tailwind CSS.</p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-green-500 mb-4"><i class="fas fa-user-tie"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Web
+                    Consulting</h3>
+
+                <div class="card">
+                    <img src="nodejs.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Personalized consultation on how to improve or build your business website –
+                    performance, SEO, UI/UX analysis.</p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-pink-500 mb-4"><i class="fas fa-shopping-cart"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">E-commerce
+                    Solutions</h3>
+
+                <div class="card">
+                    <img src="js.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Build and deploy custom e-commerce stores (like your sneakers project), with
+                    secure checkout, login systems, and admin panels.</p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-red-500 mb-4"><i class="fas fa-tools"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Debugging &
+                    Optimization</h3>
+
+                <div class="card">
+                    <img src="flask.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Fix bugs, improve website speed, and make code cleaner and more maintainable.
+                </p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-yellow-500 mb-4"><i class="fas fa-database"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Database
+                    Integration</h3>
+
+                <div class="card">
+
+                    <img src="mysql.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+
+                <p class="text-gray-600">MySQL or Firebase integration for user authentication, data storage, and
+                    dynamic content.</p>
+            </div>
+
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-blue-500 mb-4"><i class="fas fa-python"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">UI/UX Design
+                </h3>
+
+                <div class="card">
+                    <img src="mongodb.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Design visually appealing interfaces using Figma or Adobe XD for better user
+                    experience.</p>
+            </div>
+
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-blue-500 mb-4"><i class="fas fa-python"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">WordPress
+                    Development</h3>
+
+                <div class="card">
+                    <img src="linux-96.png" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Create and customize WordPress websites, plugins, and themes for business and
+                    blogs.</p>
+            </div>
+
+            <div class="service-card bg-white p-6 rounded-xl shadow-md">
+                <div class="icon-animate text-4xl text-blue-500 mb-4"><i class="fas fa-python"></i></div>
+                <h3 class="text-xl font-semibold mb-2" style="justify-content: center; text-align: center;">Mobile App
+                    Development</h3>
+
+                <div class="card">
+                    <img src="react.svg" class="image" style="display:block;margin:0 auto">
+                </div>
+
+                <p class="text-gray-600">Build native Android apps with Java/Kotlin or cross-platform with Flutter &
+                    Firebase.</p>
+            </div>
+
+
+        </div>
+        <a href="index.html" class="btn">Go Back to Home</a>
+
+
+    </section>
+
+</body>
+
+</html>

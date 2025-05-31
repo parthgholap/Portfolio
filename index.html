@@ -110,7 +110,7 @@
       <div class="dropdown-menu" id="dropdownMenu">
         <a href="index.html" id="homeID">Home</a>
         <a href="aboutSection.html" id="aboutID">About</a>
-        <a href="#services" id="servicesID">Services</a>
+        <a href="servicesSection.html" id="servicesID">Services</a>
         <a href="#portfolio" id="portfolioID">Portfolio</a>
         <a href="#contact" id="ContactID">Contact</a>
       </div>
@@ -123,15 +123,6 @@
 
   <!-- Sidebar Menu for Mobile -->
 
-
-  <!-- Sidebar Menu for Mobile -->
-  <div class="sidebar" id="sidebar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
 
   <!-- Hero Section -->
   <section class="hero" id="about">
@@ -220,6 +211,10 @@
       window.location.href = "aboutSection.html"; // Open new page in same tab
     });
 
+    document.getElementById("servicesID").addEventListener("click", function(event){
+      event.preventDefault();
+      window.location.href = "servicesSection.html";
+    });
 
     const hamburger = document.querySelector(".hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
