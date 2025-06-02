@@ -523,22 +523,22 @@ Popular in modern web stacks like MERN (MongoDB, Express, React, Node).
 
 
 
-    const cards1 = document.querySelectorAll('.card');
+    // const cards1 = document.querySelectorAll('.card');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target); // Stop observing after showing
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    // const observer = new IntersectionObserver((entries, observer) => {
+    //   entries.forEach(entry => {
+    //     if (entry.isIntersecting) {
+    //       entry.target.classList.add('show');
+    //       observer.unobserve(entry.target); // Stop observing after showing
+    //     }
+    //   });
+    // }, {
+    //   threshold: 0.1
+    // });
 
-    cards.forEach(card => {
-      observer.observe(card);
-    });
+    // cards.forEach(card => {
+    //   observer.observe(card);
+    // });
 
   </script>
 

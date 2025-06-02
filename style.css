@@ -437,7 +437,7 @@ body {
 
   /* animation */
 
-  @keyframes slideInLeftToRight {
+  /* @keyframes slideInLeftToRight {
   0% {
     transform: translateX(-70%);
     opacity: 0;
@@ -478,4 +478,4 @@ body {
 .card.show {
   opacity: 1;
   transform: translateY(0);
-}
+} */
