@@ -437,7 +437,7 @@ body {
 
   /* animation */
 
-  /* @keyframes slideInLeftToRight {
+  @keyframes slideInLeftToRight {
   0% {
     transform: translateX(-70%);
     opacity: 0;
@@ -467,7 +467,7 @@ body {
 .navbar {
   animation: slideInRightToLeft 1s ease-out forwards;
 }
-
+/* 
 
 .card {
   opacity: 0;
