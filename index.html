@@ -225,7 +225,7 @@
         <a href="aboutSection.html" id="aboutID">About</a>
         <a href="servicesSection.html" id="servicesID">Services</a>
         <a href="projectSection.html" id="projectID">Project's</a>
-        <a href="aboutSection.html" id="contactID">Contact</a>
+        <a href="contactSection.html" id="contactID">Contact</a>
       </div>
       </div>
 
@@ -238,11 +238,11 @@
 
 
   <!-- Hero Section -->
-  <section class="hero" id="about">
+  <section class="hero animate-slide-in-left" class="hero" id="about">
     <div class="hero-text">
       <h2>I'M <span>Parth Gholap</span></h2>
       <p>Python Developer & Web Developer Consultant</p>
-      <a href="aboutSection.html" id="contactme" class="contact-btn">Contact Me</a>
+      <a href="contactSection.html" id="contactme" class="contact-btn">Contact Me</a>
     </div>
 
     <div class="hero-img">
@@ -451,7 +451,7 @@ Popular in modern web stacks like MERN (MongoDB, Express, React, Node).
     }
 
     document.getElementById("contactme").addEventListener("click", function (event) {
-      window.location.href = "aboutSection.html";
+      window.location.href = "contactSection.html";
     });
 
 
@@ -472,7 +472,7 @@ Popular in modern web stacks like MERN (MongoDB, Express, React, Node).
 
     document.getElementById("contactID").addEventListener("click", function (event) {
       event.preventDefault();
-      window.location.href = "aboutSection.html";
+      window.location.href = "contactSection.html";
     });
 
     const hamburger = document.querySelector(".hamburger");
@@ -520,6 +520,24 @@ Popular in modern web stacks like MERN (MongoDB, Express, React, Node).
         dialog.style.display = 'none';
       }
     });
+
+
+  const cards1 = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+
 
 
   </script>
